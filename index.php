@@ -1,9 +1,10 @@
 <?php
     //random number guessing script.
     session_start();
+//chacking if there is already a number in the cookies
     if(!isset($_SESSION['randomNumber'])){
-        $randomNumber = rand(1, 10);
-        $_SESSION['randomNumber'] = $randomNumber;
+        $randomNumber = rand(1, 10); //generating a random number
+        $_SESSION['randomNumber'] = $randomNumber; //and storing it to the session.
     }
 ?>
 <html lang="en">
@@ -21,6 +22,7 @@
                     <input type="submit">
                 </form>
                 <?php
+                //just checking the value and give the player a score.
                     if(isset($_POST['numberGuess'])){
                         if($_POST['numberGuess'] == $_SESSION['randomNumber']){
                             echo("<p>Congrats, you found the number !</p>");
